@@ -20,4 +20,13 @@ app.get('/user/:id', (req, res)=> {
     res.json({id: 0})
 })
 
+app.delete('/user/:id', (req, res)=> {
+    if(req.params.id == Object.keys(Users)){
+        res.status(202).send();
+        Users = [];
+    }else {
+        res.status(204).send();
+    }
+})
+
 app.listen(3000, ()=> console.log('Server is running on 3000'));
